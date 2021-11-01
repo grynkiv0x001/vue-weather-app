@@ -1,14 +1,27 @@
 <template>
   <div id="app">
-    <h1>Hello, World!</h1>
+    <h1>Vue Weather App</h1>
   </div>
 </template>
 
 <script>
   export default {
     name: 'App',
-    mounted() {
-      console.log('ENV VAR: ', process.env.VUE_APP_API_KEY);
+    created() {
+      this.fetchData();
+    },
+    updated() {
+      console.log('Coords: ', this.coords);
+    },
+    computed: {
+      coords() {
+        return this.$store.getters.coords;
+      },
+    },
+    methods: {
+      async fetchData() {
+        await this.$store.dispatch('fetchLocation');
+      },
     },
   };
 </script>
