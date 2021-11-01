@@ -17,8 +17,7 @@ export default {
           context.commit('setCoords', coords)
         });
       } catch (error) {
-        console.log(error);
-        this.fetchLocation();
+        console.error(error);
       }
     },
   },

@@ -1,17 +1,19 @@
 <template>
   <div id="app">
-    <h1>Vue Weather App</h1>
+    <HomePage />
   </div>
 </template>
 
 <script>
+  import HomePage from './components/HomePage';
+
   export default {
     name: 'App',
+    components: {
+      HomePage,
+    },
     created() {
       this.fetchData();
-    },
-    updated() {
-      console.log('Coords: ', this.coords);
     },
     computed: {
       coords() {
